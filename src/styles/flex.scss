@@ -1,0 +1,126 @@
+// This file provides convenience classes for dialling in flex properties into HTML.
+// The only property that isn't supported is flex-basis, which you'll have to target
+// in your own CSS files, should you need it of course.
+.flex {
+  &.container {
+    display: flex;
+    &.row {
+      flex-direction: row;
+      &-reverse {
+        flex-direction: row-reverse;
+      }
+    }
+    &.column {
+      flex-direction: column;
+      &-reverse {
+        flex-direction: column-reverse;
+      }
+    }
+    &.wrap {
+      flex-wrap: wrap;
+      &-reverse {
+        flex-wrap: wrap-reverse;
+      }
+    }
+    &.nowrap {
+      flex-wrap: nowrap;
+    }
+
+    &.justify {
+      &-start {
+        justify-content: flex-start;
+      }
+      &-end {
+        justify-content: flex-end;
+      }
+      &-center {
+        justify-content: center;
+      }
+      &-space-between {
+        justify-content: space-between;
+      }
+      &-space-around {
+        justify-content: space-around;
+      }
+      &-space-evenly {
+        justify-content: space-evenly;
+      }
+    }
+
+    &.align {
+      &-items {
+        &-start {
+          align-items: flex-start;
+        }
+        &-end {
+          align-items: flex-end;
+        }
+        &-center {
+          align-items: center;
+        }
+        &-stretch {
+          align-items: stretch;
+        }
+        &-baseline {
+          align-items: baseline;
+        }
+      }
+
+      &-content {
+        &-start {
+          align-content: flex-start;
+        }
+        &-end {
+          align-content: flex-end;
+        }
+        &-center {
+          align-content: center;
+        }
+        &-stretch {
+          align-content: stretch;
+        }
+        &-space-between {
+          align-content: space-between;
+        }
+        &-space-around {
+          align-content: space-around;
+        }
+      }
+    }
+  }
+  // end container
+
+  &.item {
+    @for $i from 1 through 16 {
+      &.order-#{$i} {
+        order: $i;
+      }
+      &.grow-#{$i} {
+        flex-grow: $i;
+      }
+      &.shrink-#{$i} {
+        flex-shrink: $i;
+      }
+    }
+    &.align-self {
+      &-auto {
+        align-self: auto;
+      }
+      &-start {
+        align-self: start;
+      }
+      &-end {
+        align-self: end;
+      }
+      &-center {
+        align-self: center;
+      }
+      &-baseline {
+        align-self: baseline;
+      }
+      &-stretch {
+        align-self: stretch;
+      }
+    }
+  }
+}

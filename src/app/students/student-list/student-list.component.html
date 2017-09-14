@@ -1,0 +1,4 @@
+<ul>
+  <apg-student *ngFor="let student of students$ | async" [student]="student" [class.highlight]="
+    (id$ | async) !== undefined && (id$ | async) == student.id"></apg-student>
+</ul>
